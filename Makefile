@@ -14,6 +14,10 @@ compile:
 	@echo "compiling the application..."
 	@mvn compile
 
+dependencies:
+	@echo "installing dependencies..."
+	@mvn clean install
+
 run:
 	@echo "running the application..."
 	@java -jar target/$(APP_NAME).jar

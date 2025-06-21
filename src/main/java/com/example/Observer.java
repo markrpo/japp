@@ -1,16 +1,20 @@
 package com.example;
-
-import com.example.iwebsocket.IObserver;
 import com.example.iwebsocket.IWebSocket;
+import com.example.iwebsocket.IObserver;
 
+import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+
+@Component
 public class Observer implements IObserver {
+
 	public Observer(IWebSocket webSocket) {
 		this.m_webSocket = webSocket;
 	}
 
 	@Override
 	public void init() {
-		m_webSocket.subscribe(this);
+		m_webSocket.registerObserver(this);
 		System.out.println("Observer initialized.");
 	}
 
